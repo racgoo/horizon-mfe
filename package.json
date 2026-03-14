@@ -76,8 +76,7 @@
     "example:svelte": "pnpm run build:examples && concurrently -n lib,vanilla,react,vue,solid,svelte,ember,hostSvelte -c cyan,green,blue,greenBright,magenta,yellow,red,gray \"pnpm dev\" \"pnpm --filter child-vanilla dev\" \"pnpm --filter child-react dev\" \"pnpm --filter child-vue dev\" \"pnpm --filter child-solid dev\" \"pnpm --filter child-svelte dev\" \"pnpm --filter child-ember dev\" \"pnpm --filter host-svelte dev\"",
     "example:ember": "pnpm run build:examples && concurrently -n lib,vanilla,react,vue,solid,svelte,ember,hostEmber -c cyan,green,blue,greenBright,magenta,yellow,red,gray \"pnpm dev\" \"pnpm --filter child-vanilla dev\" \"pnpm --filter child-react dev\" \"pnpm --filter child-vue dev\" \"pnpm --filter child-solid dev\" \"pnpm --filter child-svelte dev\" \"pnpm --filter child-ember dev\" \"pnpm --filter host-ember dev\"",
     "bump:version": "node scripts/bump-version.js",
-    "update:version": "node scripts/update-version.js",
-    "publish": "pnpm run build && pnpm pack && pnpm publish horizon-mfe-*.tgz && rm -f horizon-mfe-*.tgz"
+    "update:version": "node scripts/update-version.js"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^1.4.0",

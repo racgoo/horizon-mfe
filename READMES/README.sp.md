@@ -581,6 +581,8 @@ window.__HORIZON_LIFECYCLE__ = {
 
 ## Aislamiento CSS
 
+> **⚠️ El CSS puede entrar en conflicto.** Los estilos de la app hija se inyectan en el documento y pueden chocar con el host u otras apps. Para evitarlo **debes** usar una de: **(1) Shadow DOM** (`<horizon-app>`), **(2) acotar todos los selectores** con `[data-horizon-app="<name>"]`, o **(3) nombres de clase con hash/scope** (p. ej. CSS Modules). No dependas solo de estilos globales sin acotar.
+
 ### Atributo de ámbito (por defecto)
 
 Horizon añade `data-horizon-app="<name>"` al elemento contenedor. Es un enfoque **por convención** — las apps hijas deben prefijar sus selectores CSS para que el ámbito funcione. Las hojas de estilo se inyectan en `document.head`.

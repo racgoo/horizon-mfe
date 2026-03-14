@@ -581,6 +581,8 @@ window.__HORIZON_LIFECYCLE__ = {
 
 ## Isolation CSS
 
+> **⚠️ Le CSS peut entrer en conflit.** Les styles des apps enfants sont injectés dans le document et peuvent entrer en conflit avec l'hôte ou d'autres apps. Pour éviter les conflits, il **faut** utiliser l'un des : **(1) Shadow DOM** (`<horizon-app>`), **(2) scoper tous les sélecteurs** avec `[data-horizon-app="<name>"]`, ou **(3) noms de classes hashés/scope** (ex. CSS Modules). Ne pas se reposer uniquement sur des styles globaux non scopés.
+
 ### Attribut de portée (par défaut)
 
 Horizon ajoute `data-horizon-app="<name>"` à l’élément conteneur. Approche **par convention** — les apps enfants doivent préfixer leurs sélecteurs CSS pour que la portée fonctionne. Les feuilles de style sont toujours injectées dans `document.head`.

@@ -581,6 +581,8 @@ window.__HORIZON_LIFECYCLE__ = {
 
 ## CSS 隔离
 
+> **⚠️ CSS 可能发生冲突。** 子应用样式会注入文档，可能与主应用或其他应用冲突。为避免冲突，**必须**采用其一：**(1) Shadow DOM**（`<horizon-app>`）、**(2) 用** `[data-horizon-app="<name>"]` **限定所有选择器**、**(3) 哈希/作用域类名**（如 CSS Modules）。不要仅依赖全局、未限定作用域的样式。
+
 ### 作用域属性（默认）
 
 Horizon 在容器元素上添加 `data-horizon-app="<name>"`。这是**约定式**做法 — 子应用需在 CSS 选择器前加上该属性才能实现作用域。样式表仍注入到 `document.head`。

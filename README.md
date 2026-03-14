@@ -594,6 +594,8 @@ window.__HORIZON_LIFECYCLE__ = {
 
 ## CSS Isolation
 
+> **⚠️ CSS can conflict.** Child app styles are injected into the document and can clash with the host or other apps. To avoid conflicts, you **must** use one of: **(1) Shadow DOM** via `<horizon-app>`, **(2) scope all selectors** with `[data-horizon-app="<name>"]`, or **(3) hashed/scoped class names** (e.g. CSS Modules). Do not rely on global, unscoped styles.
+
 ### Scope Attribute (default)
 
 Horizon adds `data-horizon-app="<name>"` to the container element. This is a **convention-based** approach — child apps must prefix all their CSS selectors accordingly for scoping to work. Stylesheets are still injected into `document.head`.

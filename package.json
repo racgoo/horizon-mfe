@@ -14,11 +14,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/racgoo/horizon.git"
+    "url": "https://github.com/racgoo/horizon-mfe.git"
   },
-  "homepage": "https://github.com/racgoo/horizon#readme",
+  "homepage": "https://github.com/racgoo/horizon-mfe#readme",
   "bugs": {
-    "url": "https://github.com/racgoo/horizon/issues"
+    "url": "https://github.com/racgoo/horizon-mfe/issues"
   },
   "main": "dist/horizon.umd.js",
   "module": "dist/horizon.js",

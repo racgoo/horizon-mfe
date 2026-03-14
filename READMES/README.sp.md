@@ -1,6 +1,8 @@
 # horizon-mfe(beta WIP)
 
-**Version:** 0.0.3
+<img width="1380" height="752" alt="Image" src="https://github.com/user-attachments/assets/91e0d88a-e62d-48a7-a452-2a5c8749d5c4" />
+
+**Version:** 0.1.0
 
 [![npm version](https://img.shields.io/npm/v/horizon-mfe)](https://www.npmjs.com/package/horizon-mfe)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

@@ -1,0 +1,101 @@
+.svelte-app {
+  padding: 32px;
+  max-width: 440px;
+}
+
+.svelte-app .app-badge {
+  display: inline-block;
+  background: rgba(255, 62, 0, 0.12);
+  color: #ff3e00;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.svelte-app .child-nav {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #0d1117;
+  border: 1px solid #1f2937;
+  margin-bottom: 28px;
+}
+
+.svelte-app .child-nav-button {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.svelte-app .child-nav-button:hover {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+.svelte-app .child-nav-button.is-active {
+  background: rgba(255, 62, 0, 0.18);
+  color: #ff3e00;
+  font-weight: 600;
+}
+
+.svelte-app h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #8888aa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.svelte-app .counter-display {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 24px;
+  color: #e2e2f0;
+  font-variant-numeric: tabular-nums;
+}
+
+.svelte-app .counter-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.svelte-app .btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.svelte-app .btn:active {
+  transform: scale(0.96);
+}
+
+.svelte-app .btn-primary { background: #ff3e00; color: #fff; }
+.svelte-app .btn-ghost   { background: #1f2937; color: #e2e2f0; }
+.svelte-app .btn-outline { background: transparent; border: 1px solid #2e2e40; color: #8888aa; }
+
+.svelte-app .hint { font-size: 0.8rem; color: #8888aa; }
+.svelte-app .hint code {
+  background: #2e2e40;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}

@@ -1,0 +1,188 @@
+import { createSignal, For, Show, onCleanup, onMount } from "solid-js";
+import { createHorizon, eventBus, navigateTo } from "horizon-mfe";
+import "./style.css";
+
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/vanilla", label: "Vanilla" },
+  { href: "/react", label: "React" },
+  { href: "/vue", label: "Vue" },
+  { href: "/solid", label: "Solid" },
+  { href: "/svelte", label: "Svelte" },
+  { href: "/ember", label: "Ember" },
+] as const;
+
+function isActive(href: string, pathname: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+}
+
+export default function App() {
+  const [pathname, setPathname] = createSignal(
+    typeof window !== "undefined" ? window.location.pathname : "/",
+  );
+  const [countText, setCountText] = createSignal("—");
+
+  onMount(() => {
+    // Wire up Horizon host
+    createHorizon({
+      container: "#app-container",
+      keepAlive: true,
+      onRouteChange: () => {
+        setPathname(window.location.pathname);
+      },
+      apps: [
+        {
+          name: "child-vanilla",
+          entry: {
+            scripts: ["http://localhost:3001/child-vanilla.iife.js"],
+            styles: ["http://localhost:3001/style.css"],
+          },
+          route: "/vanilla",
+        },
+        {
+          name: "child-react",
+          entry: "http://localhost:3002",
+          route: "/react",
+        },
+        { name: "child-vue", entry: "http://localhost:3003", route: "/vue" },
+        {
+          name: "child-solid",
+          entry: "http://localhost:3004",
+          route: "/solid",
+        },
+        {
+          name: "child-svelte",
+          entry: "http://localhost:3005",
+          route: "/svelte",
+        },
+        {
+          name: "child-ember",
+          entry: "http://localhost:3006",
+          route: "/ember",
+        },
+      ],
+    });
+
+    // Event bus log
+    const off = eventBus.on<number>("store:count", (value) => {
+      setCountText(String(value));
+    });
+    onCleanup(off);
+  });
+
+  const showHome = () => pathname() === "/";
+
+  return (
+    <>
+      <header class="host-header">
+        <span class="logo">Horizon · Solid Host</span>
+        <nav>
+          <For each={NAV_LINKS}>
+            {({ href, label }) => (
+              <a
+                href={href}
+                classList={{ active: isActive(href, pathname()) }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateTo(href);
+                }}
+              >
+                {label}
+              </a>
+            )}
+          </For>
+        </nav>
+        <div class="event-log">
+          <span class="event-log-label">event bus</span>
+          <span class="event-log-value">{countText()}</span>
+        </div>
+      </header>
+
+      <main>
+        <Show when={showHome()}>
+          <div class="home">
+            <h1>Horizon Micro-Frontend Demo</h1>
+            <p>
+              One host app orchestrating six child apps — Vanilla TS, React, Vue
+              3, Solid, Svelte, and Ember. Each runs in an isolated JS sandbox.
+              Child apps have <strong>zero knowledge</strong> of Horizon.
+            </p>
+            <div class="cards">
+              <button
+                type="button"
+                class="card card-vanilla"
+                onClick={() => navigateTo("/vanilla")}
+              >
+                <h2>Vanilla TS →</h2>
+                <p>
+                  Pure DOM. Low-level <code>window.__HORIZON_LIFECYCLE__</code>{" "}
+                  API.
+                </p>
+              </button>
+              <button
+                type="button"
+                class="card card-react"
+                onClick={() => navigateTo("/react")}
+              >
+                <h2>React 18 →</h2>
+                <p>
+                  Uses <code>horizon-mfe/react</code> — just{" "}
+                  <code>defineApp(App)</code>.
+                </p>
+              </button>
+              <button
+                type="button"
+                class="card card-vue"
+                onClick={() => navigateTo("/vue")}
+              >
+                <h2>Vue 3 →</h2>
+                <p>
+                  Uses <code>horizon-mfe/vue</code> — just{" "}
+                  <code>defineApp(App)</code>.
+                </p>
+              </button>
+              <button
+                type="button"
+                class="card card-solid"
+                onClick={() => navigateTo("/solid")}
+              >
+                <h2>Solid →</h2>
+                <p>
+                  Uses <code>horizon-mfe/solid</code> — just{" "}
+                  <code>defineApp(App)</code>.
+                </p>
+              </button>
+              <button
+                type="button"
+                class="card card-svelte"
+                onClick={() => navigateTo("/svelte")}
+              >
+                <h2>Svelte →</h2>
+                <p>
+                  Uses <code>horizon-mfe/svelte</code> — just{" "}
+                  <code>defineApp(App)</code>.
+                </p>
+              </button>
+              <button
+                type="button"
+                class="card card-ember"
+                onClick={() => navigateTo("/ember")}
+              >
+                <h2>Ember →</h2>
+                <p>
+                  Uses <code>horizon-mfe/ember</code> lifecycle.
+                </p>
+              </button>
+            </div>
+          </div>
+        </Show>
+
+        <div
+          id="app-container"
+          class={`app-container${showHome() ? " app-container--hidden" : ""}`}
+        />
+      </main>
+    </>
+  );
+}

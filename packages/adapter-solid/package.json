@@ -1,0 +1,34 @@
+{
+  "name": "horizon-mfe/solid",
+  "version": "0.1.0",
+  "description": "Horizon adapter for Solid — mount any Solid component as a micro-frontend",
+  "main": "dist/adapter-solid.umd.js",
+  "module": "dist/adapter-solid.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/adapter-solid.js",
+      "require": "./dist/adapter-solid.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "dev": "vite build --watch --minify false",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "horizon-mfe": "*",
+    "solid-js": ">=1"
+  },
+  "devDependencies": {
+    "horizon-mfe": "workspace:*",
+    "solid-js": "^1.8.0",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.0",
+    "vite-plugin-solid": "^2.10.0"
+  }
+}

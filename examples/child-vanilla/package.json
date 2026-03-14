@@ -1,0 +1,17 @@
+{
+  "name": "child-vanilla",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "concurrently -n build,serve -c green,cyan \"vite build --watch --minify false\" \"vite preview\"",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "horizon-mfe": "workspace:*"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.0"
+  }
+}

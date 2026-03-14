@@ -1,0 +1,92 @@
+{
+  "name": "horizon-mfe",
+  "version": "0.0.1",
+  "description": "A lightweight, zero-dependency micro-frontend framework with JS sandbox, CSS isolation, keep-alive, and framework adapters",
+  "license": "MIT",
+  "keywords": [
+    "micro-frontend",
+    "microfrontend",
+    "micro-frontends",
+    "sandbox",
+    "mfe",
+    "single-spa",
+    "qiankun"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/racgoo/horizon.git"
+  },
+  "homepage": "https://github.com/racgoo/horizon#readme",
+  "bugs": {
+    "url": "https://github.com/racgoo/horizon/issues"
+  },
+  "main": "dist/horizon.umd.js",
+  "module": "dist/horizon.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/horizon.js",
+      "require": "./dist/horizon.umd.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/adapter-react.js",
+      "require": "./dist/react/adapter-react.umd.js"
+    },
+    "./vue": {
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue/adapter-vue.js",
+      "require": "./dist/vue/adapter-vue.umd.js"
+    },
+    "./solid": {
+      "types": "./dist/solid/index.d.ts",
+      "import": "./dist/solid/adapter-solid.js",
+      "require": "./dist/solid/adapter-solid.umd.js"
+    },
+    "./svelte": {
+      "types": "./dist/svelte/index.d.ts",
+      "import": "./dist/svelte/adapter-svelte.js",
+      "require": "./dist/svelte/adapter-svelte.umd.js"
+    },
+    "./ember": {
+      "types": "./dist/ember/index.d.ts",
+      "import": "./dist/ember/adapter-ember.js",
+      "require": "./dist/ember/adapter-ember.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "pnpm build",
+    "build:core": "vite build && tsc -p tsconfig.build.json",
+    "build:adapters": "pnpm --filter \"horizon-mfe/react\" build && pnpm --filter \"horizon-mfe/vue\" build && pnpm --filter \"horizon-mfe/solid\" build && pnpm --filter \"horizon-mfe/svelte\" build && pnpm --filter \"horizon-mfe/ember\" build",
+    "build:bundle": "node scripts/copy-adapters-to-dist.mjs",
+    "build": "pnpm build:core && pnpm build:adapters && pnpm build:bundle",
+    "build:examples": "pnpm build && pnpm --filter \"horizon-mfe/react\" build && pnpm --filter \"horizon-mfe/vue\" build && pnpm --filter \"horizon-mfe/solid\" build && pnpm --filter \"horizon-mfe/svelte\" build && pnpm --filter \"horizon-mfe/ember\" build",
+    "dev": "vite build --watch --minify false",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "example:vanilla": "pnpm run build:examples && concurrently -n lib,vanilla,react,vue,solid,svelte,ember,hostVanilla -c cyan,green,blue,greenBright,magenta,yellow,red,gray \"pnpm dev\" \"pnpm --filter child-vanilla dev\" \"pnpm --filter child-react dev\" \"pnpm --filter child-vue dev\" \"pnpm --filter child-solid dev\" \"pnpm --filter child-svelte dev\" \"pnpm --filter child-ember dev\" \"pnpm --filter host-vanilla dev\"",
+    "example:react": "pnpm run build:examples && concurrently -n lib,vanilla,react,vue,solid,svelte,ember,hostReact -c cyan,green,blue,greenBright,magenta,yellow,red,gray \"pnpm dev\" \"pnpm --filter child-vanilla dev\" \"pnpm --filter child-react dev\" \"pnpm --filter child-vue dev\" \"pnpm --filter child-solid dev\" \"pnpm --filter child-svelte dev\" \"pnpm --filter child-ember dev\" \"pnpm --filter host-react dev\"",
+    "example:vue": "pnpm run build:examples && concurrently -n lib,vanilla,react,vue,solid,svelte,ember,hostVue -c cyan,green,blue,greenBright,magenta,yellow,red,gray \"pnpm dev\" \"pnpm --filter child-vanilla dev\" \"pnpm --filter child-react dev\" \"pnpm --filter child-vue dev\" \"pnpm --filter child-solid dev\" \"pnpm --filter child-svelte dev\" \"pnpm --filter child-ember dev\" \"pnpm --filter host-vue dev\"",
+    "example:solid": "pnpm run build:examples && concurrently -n lib,vanilla,react,vue,solid,svelte,ember,hostSolid -c cyan,green,blue,greenBright,magenta,yellow,red,gray \"pnpm dev\" \"pnpm --filter child-vanilla dev\" \"pnpm --filter child-react dev\" \"pnpm --filter child-vue dev\" \"pnpm --filter child-solid dev\" \"pnpm --filter child-svelte dev\" \"pnpm --filter child-ember dev\" \"pnpm --filter host-solid dev\"",
+    "example:svelte": "pnpm run build:examples && concurrently -n lib,vanilla,react,vue,solid,svelte,ember,hostSvelte -c cyan,green,blue,greenBright,magenta,yellow,red,gray \"pnpm dev\" \"pnpm --filter child-vanilla dev\" \"pnpm --filter child-react dev\" \"pnpm --filter child-vue dev\" \"pnpm --filter child-solid dev\" \"pnpm --filter child-svelte dev\" \"pnpm --filter child-ember dev\" \"pnpm --filter host-svelte dev\"",
+    "example:ember": "pnpm run build:examples && concurrently -n lib,vanilla,react,vue,solid,svelte,ember,hostEmber -c cyan,green,blue,greenBright,magenta,yellow,red,gray \"pnpm dev\" \"pnpm --filter child-vanilla dev\" \"pnpm --filter child-react dev\" \"pnpm --filter child-vue dev\" \"pnpm --filter child-solid dev\" \"pnpm --filter child-svelte dev\" \"pnpm --filter child-ember dev\" \"pnpm --filter host-ember dev\"",
+    "bump:version": "node scripts/bump-version.js",
+    "update:version": "node scripts/update-version.js",
+    "publish": "pnpm run build && pnpm pack && pnpm publish horizon-mfe-*.tgz && rm -f horizon-mfe-*.tgz"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.4.0",
+    "concurrently": "^8.2.2",
+    "jsdom": "^24.0.0",
+    "typescript": "~5.4.2",
+    "vite": "^5.1.0",
+    "vitest": "^1.4.0",
+    "task-pipeliner": "^0.3.16"
+  },
+  "packageManager": "pnpm@10.26.1+sha512.664074abc367d2c9324fdc18037097ce0a8f126034160f709928e9e9f95d98714347044e5c3164d65bd5da6c59c6be362b107546292a8eecb7999196e5ce58fa"
+}

@@ -1,0 +1,99 @@
+.solid-app {
+  padding: 32px;
+  max-width: 440px;
+}
+
+.solid-app .app-badge {
+  display: inline-block;
+  background: rgba(249, 115, 22, 0.12);
+  color: #f97316;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.solid-app .child-nav {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #0d1117;
+  border: 1px solid #1f2937;
+  margin-bottom: 28px;
+}
+
+.solid-app .child-nav-button {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.solid-app .child-nav-button:hover {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+.solid-app .child-nav-button.is-active {
+  background: rgba(249, 115, 22, 0.18);
+  color: #f97316;
+  font-weight: 600;
+}
+
+.solid-app h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #8888aa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.solid-app .counter-display {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 24px;
+  color: #e2e2f0;
+  font-variant-numeric: tabular-nums;
+}
+
+.solid-app .counter-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.solid-app .btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.solid-app .btn:active { transform: scale(0.96); }
+
+.solid-app .btn-primary { background: #f97316; color: #0f0f13; }
+.solid-app .btn-ghost   { background: #1f2937; color: #e2e2f0; }
+.solid-app .btn-outline { background: transparent; border: 1px solid #2e2e40; color: #8888aa; }
+
+.solid-app .hint { font-size: 0.8rem; color: #8888aa; }
+.solid-app .hint code {
+  background: #2e2e40;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}

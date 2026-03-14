@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizon — Example Host (Vanilla)</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="host-header">
+      <span class="logo">Horizon · Vanilla Host</span>
+      <nav>
+        <a href="/" data-link>Home</a>
+        <a href="/vanilla" data-link>Vanilla</a>
+        <a href="/react" data-link>React</a>
+        <a href="/vue" data-link>Vue</a>
+        <a href="/solid" data-link>Solid</a>
+        <a href="/svelte" data-link>Svelte</a>
+        <a href="/ember" data-link>Ember</a>
+      </nav>
+      <div class="event-log" id="event-log">
+        <span class="event-log-label">count</span>
+        <span class="event-log-value" id="event-log-value">0</span>
+      </div>
+    </header>
+
+    <main>
+      <div id="home-content" class="home">
+        <h1>Horizon Micro-Frontend Demo</h1>
+        <p>
+          One host app orchestrating six child apps — Vanilla TS, React, Vue 3,
+          Solid, Svelte, and Ember. Each runs in an isolated JS sandbox. Child
+          apps have <strong>zero knowledge</strong> of Horizon.
+        </p>
+        <div class="cards">
+          <button class="card card-vanilla" onclick="navigate('/vanilla')">
+            <h2>Vanilla TS →</h2>
+            <p>
+              Pure DOM. Low-level <code>window.__HORIZON_LIFECYCLE__</code> API.
+            </p>
+          </button>
+          <button class="card card-react" onclick="navigate('/react')">
+            <h2>React 18 →</h2>
+            <p>
+              Uses <code>horizon-mfe/react</code> — just
+              <code>defineApp(App)</code>.
+            </p>
+          </button>
+          <button class="card card-vue" onclick="navigate('/vue')">
+            <h2>Vue 3 →</h2>
+            <p>
+              Uses <code>horizon-mfe/vue</code> — just
+              <code>defineApp(App)</code>.
+            </p>
+          </button>
+          <button class="card card-solid" onclick="navigate('/solid')">
+            <h2>Solid →</h2>
+            <p>
+              Uses <code>horizon-mfe/solid</code> — just
+              <code>defineApp(App)</code>.
+            </p>
+          </button>
+          <button class="card card-svelte" onclick="navigate('/svelte')">
+            <h2>Svelte →</h2>
+            <p>
+              Uses <code>horizon-mfe/svelte</code> — just
+              <code>defineApp(App)</code>.
+            </p>
+          </button>
+          <button class="card card-ember" onclick="navigate('/ember')">
+            <h2>Ember →</h2>
+            <p>Uses <code>horizon-mfe/ember</code> lifecycle.</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Child apps mount here -->
+      <div id="app-container"></div>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

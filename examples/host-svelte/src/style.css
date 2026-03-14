@@ -1,0 +1,180 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0f0f13;
+  --surface: #1a1a24;
+  --border: #2e2e40;
+  --accent: #7c6af7;
+  --accent-dim: #3d3580;
+  --text: #e2e2f0;
+  --text-muted: #8888aa;
+  --font: system-ui, -apple-system, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+.host-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+  height: 56px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+.host-header nav {
+  display: flex;
+  gap: 4px;
+}
+.host-header nav a {
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.15s, color 0.15s;
+}
+.host-header nav a:hover {
+  background: var(--border);
+  color: var(--text);
+}
+.host-header nav a.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.event-log {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.event-log-label {
+  color: var(--accent);
+  font-weight: 600;
+}
+.event-log-value {
+  color: var(--text);
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.home h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.home p {
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  font-size: 1.05rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text);
+  transition: border-color 0.15s, transform 0.15s;
+}
+.card:hover {
+  transform: translateY(-2px);
+}
+.card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.card code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.82rem;
+}
+
+.card-vanilla:hover {
+  border-color: #ddff00;
+}
+.card-react:hover {
+  border-color: #60a5fa;
+}
+.card-vue:hover {
+  border-color: #42b883;
+}
+.card-solid:hover {
+  border-color: #f97316;
+}
+.card-svelte:hover {
+  border-color: #ff3e00;
+}
+.card-ember:hover {
+  border-color: #e04e39;
+}
+
+.app-container {
+  position: relative;
+  min-height: 200px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+.app-container--hidden {
+  min-height: 0;
+  border: none;
+}
+.app-container:not(.app-container--hidden)::before {
+  content: "child app";
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

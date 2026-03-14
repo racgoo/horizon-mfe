@@ -1,0 +1,31 @@
+{
+  "name": "horizon-mfe/ember",
+  "version": "0.1.0",
+  "description": "Horizon adapter for Ember — register lifecycle for an Ember app or custom mount",
+  "main": "dist/adapter-ember.umd.js",
+  "module": "dist/adapter-ember.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/adapter-ember.js",
+      "require": "./dist/adapter-ember.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "dev": "vite build --watch --minify false",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "horizon-mfe": "*"
+  },
+  "devDependencies": {
+    "horizon-mfe": "workspace:*",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.0"
+  }
+}

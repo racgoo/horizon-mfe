@@ -1,0 +1,38 @@
+{
+  "name": "horizon-mfe/react",
+  "version": "0.1.0",
+  "description": "Horizon adapter for React — mount any React component as a micro-frontend",
+  "main": "dist/adapter-react.umd.js",
+  "module": "dist/adapter-react.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/adapter-react.js",
+      "require": "./dist/adapter-react.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc --emitDeclarationOnly --declaration --outDir dist",
+    "dev": "vite build --watch --minify false",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "horizon-mfe": "*",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "horizon-mfe": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.0"
+  }
+}

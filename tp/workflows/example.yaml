@@ -1,0 +1,25 @@
+name: Horizon Example (with choose)
+baseDir: ../../
+steps:
+  - run: 'echo "Horizon Example"'
+  - choose:
+      message: Select example
+      options:
+        - id: react
+          label: React
+        - id: vue
+          label: Vue
+        - id: vanilla
+          label: Vanilla
+        - id: solid
+          label: Solid
+        - id: svelte
+          label: Svelte
+        - id: ember
+          label: Ember
+      as: example
+  - run: 'echo "You chose: {{ example }}"'
+  - run: "killall node"
+    continue: true
+  - run: "pnpm run example:{{ example }}"
+  - run: 'echo "Open http://localhost:3000 to see the example"'

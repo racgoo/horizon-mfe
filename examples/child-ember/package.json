@@ -1,0 +1,16 @@
+{
+  "name": "child-ember",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "horizon-mfe": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.2",
+    "vite": "^5.1.0"
+  }
+}

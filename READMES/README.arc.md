@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/horizon-mfe)](https://www.npmjs.com/package/horizon-mfe)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**لغات README** [EN [English]](https://github.com/racgoo/horizon) / [KR [한국어]](https://github.com/racgoo/horizon/blob/main/READMES/README.ko.md) / [中文 [简体]](https://github.com/racgoo/horizon/blob/main/READMES/README.zh.md) / [日本語](https://github.com/racgoo/horizon/blob/main/READMES/README.ja.md) / [Español](https://github.com/racgoo/horizon/blob/main/READMES/README.sp.md) / [Français](https://github.com/racgoo/horizon/blob/main/READMES/README.fr.md) / [हिन्दी](https://github.com/racgoo/horizon/blob/main/READMES/README.hi.md) / [Русский](https://github.com/racgoo/horizon/blob/main/READMES/README.ru.md) / [العربية](https://github.com/racgoo/horizon/blob/main/READMES/README.arc.md)
+**لغات README** [EN [English]](https://github.com/racgoo/horizon-mfe) / [KR [한국어]](https://github.com/racgoo/horizon-mfe/blob/main/READMES/README.ko.md) / [中文 [简体]](https://github.com/racgoo/horizon-mfe/blob/main/READMES/README.zh.md) / [日本語](https://github.com/racgoo/horizon-mfe/blob/main/READMES/README.ja.md) / [Español](https://github.com/racgoo/horizon-mfe/blob/main/READMES/README.sp.md) / [Français](https://github.com/racgoo/horizon-mfe/blob/main/READMES/README.fr.md) / [हिन्दी](https://github.com/racgoo/horizon-mfe/blob/main/READMES/README.hi.md) / [Русский](https://github.com/racgoo/horizon-mfe/blob/main/READMES/README.ru.md) / [العربية](https://github.com/racgoo/horizon-mfe/blob/main/READMES/README.arc.md)
 
 إطار عمل خفيف للواجهات الأمامية الصغيرة (micro-frontend).
 

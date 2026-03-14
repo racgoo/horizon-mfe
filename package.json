@@ -1,6 +1,6 @@
 {
   "name": "horizon-mfe",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight, zero-dependency micro-frontend framework with JS sandbox, CSS isolation, keep-alive, and framework adapters",
   "license": "MIT",
   "keywords": [

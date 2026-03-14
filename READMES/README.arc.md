@@ -1,6 +1,6 @@
 # horizon-mfe(beta WIP)
 
-**Version:** 0.0.2
+**Version:** 0.0.3
 
 [![npm version](https://img.shields.io/npm/v/horizon-mfe)](https://www.npmjs.com/package/horizon-mfe)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
